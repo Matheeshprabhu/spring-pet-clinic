@@ -2,7 +2,7 @@ package com.math.petclinic.model;
 
 import java.time.LocalDate;
 
-public class Pet {
+public class Pet extends BaseEntity{
 
     private LocalDate birthDate;
     private PetType petType;
@@ -22,14 +22,4 @@ public class Pet {
     public void setPetType(PetType petType) {
         this.petType = petType;
     }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    private Owner owner;
 }
