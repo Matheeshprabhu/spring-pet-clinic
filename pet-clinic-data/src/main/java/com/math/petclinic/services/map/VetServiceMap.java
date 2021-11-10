@@ -3,10 +3,11 @@ package com.math.petclinic.services.map;
 import com.math.petclinic.model.Vet;
 import com.math.petclinic.model.Vet;
 import com.math.petclinic.services.CrudService;
+import com.math.petclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     public Set<Vet> findAll() {
         return super.findAll();
