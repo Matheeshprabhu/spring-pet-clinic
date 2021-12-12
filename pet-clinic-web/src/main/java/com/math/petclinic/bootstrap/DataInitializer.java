@@ -1,8 +1,10 @@
 package com.math.petclinic.bootstrap;
 
 import com.math.petclinic.model.Owner;
+import com.math.petclinic.model.PetType;
 import com.math.petclinic.model.Vet;
 import com.math.petclinic.services.OwnerService;
+import com.math.petclinic.services.PetTypeService;
 import com.math.petclinic.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,11 +15,13 @@ public class DataInitializer implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
     @Autowired
-    public DataInitializer(OwnerService ownerService, VetService vetService){
+    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService){
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
@@ -52,5 +56,14 @@ public class DataInitializer implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Saved vets");
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogType = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCatType = petTypeService.save(cat);
+
     }
 }
